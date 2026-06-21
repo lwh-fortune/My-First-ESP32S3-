@@ -33,7 +33,7 @@
 * **星形拓扑布线**：电源分配网络（PDN）采用星形走线，主供电轨走线宽度达 180 mil。
 * **射频与地平面优化**：2.4GHz 天线区域实施 5mm 严格净空；全板实施双面大面积覆地，并利用地过孔阵列（Via Stitching）强力耦合回流路径。
 
->[PCB 正面渲染图](./GP_26.5.11_IR_v0.7/Hardware/Previews/PCB-1.png)
+>[PCB 正面渲染图](./GP_26.5.11_IR_v0.7/Hardware/Previews/PCB-1.png)\n
 >[PCB 背面路由图](./GP_26.5.11_IR_v0.7/Hardware/Previews/PCB-2.png)
 
 

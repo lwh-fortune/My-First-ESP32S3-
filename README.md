@@ -27,7 +27,7 @@
 * 设计了 4A PPTC 自恢复保险丝与大容量储能电容组合的输入防护级。
 * 针对继电器与舵机等感性负载，设计了 SS8050 三极管深饱和驱动电路，并反向并联续流二极管进行高压反向电动势（Back-EMF）隔离。
 
->[点击此处查看完整原理图 PDF](./Hardware/Previews/schematic.pdf)
+>[点击此处查看完整原理图 PDF](./Hardware/Previews/系统原理图.pdf)
 
 ### 2. PCB Layout 渲染图 (PCB Layout)
 * **星形拓扑布线**：电源分配网络（PDN）采用星形走线，主供电轨走线宽度达 180 mil。

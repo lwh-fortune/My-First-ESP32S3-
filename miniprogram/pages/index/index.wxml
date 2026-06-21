@@ -1,0 +1,74 @@
+<view class="container" style="padding-top: {{navPaddingTop}}">
+  <view class="header">
+    <text>🌡️ ESP32 智能家居</text>
+    <text class="subtitle">OneNET 物模型数据</text>
+  </view>
+
+  <!-- 环境数据卡片 -->
+  <view class="card">
+    <view class="data-row">
+      <view class="label">温度</view>
+      <view class="value">{{temperature}}</view>
+    </view>
+    <view class="data-row">
+      <view class="label">湿度</view>
+      <view class="value">{{humidity}}</view>
+    </view>
+    <view class="footer">
+      <text class="status {{statusClass}}">{{statusText}}</text>
+      <text class="update-time">更新时间: {{lastUpdate}}</text>
+    </view>
+  </view>
+
+  <!-- 集中控制卡片 -->
+  <view class="card control-card">
+    <view class="control-header">设备控制面板</view>
+
+    <view class="data-row">
+      <view class="label">💡 LED灯</view>
+      <switch checked="{{switches.Led_switch}}" data-key="Led_switch" bindchange="onDeviceSwitchChange" color="#5c6bc0" class="control-switch" disabled="{{isSwitching || !deviceOnline}}" />
+    </view>
+
+    <view class="data-row">
+      <view class="label">🌬️ 换气风扇</view>
+      <switch checked="{{switches.Fan_switch}}" data-key="Fan_switch" bindchange="onDeviceSwitchChange" color="#00bcd4" class="control-switch" disabled="{{isSwitching || !deviceOnline}}" />
+    </view>
+
+    <view class="data-row">
+      <view class="label">💨 加湿器</view>
+      <switch checked="{{switches.Hum_switch}}" data-key="Hum_switch" bindchange="onDeviceSwitchChange" color="#2196f3" class="control-switch" disabled="{{isSwitching || !deviceOnline}}" />
+    </view>
+
+    <view class="data-row">
+      <view class="label">🪟 智能窗帘</view>
+      <switch checked="{{switches.Servo_switch}}" data-key="Servo_switch" bindchange="onDeviceSwitchChange" color="#8bc34a" class="control-switch" disabled="{{isSwitching || !deviceOnline}}" />
+    </view>
+
+    <view class="data-row">
+      <view class="label">🎵 氛围音乐</view>
+      <switch checked="{{switches.Music_switch}}" data-key="Music_switch" bindchange="onDeviceSwitchChange" color="#ff4081" class="control-switch" disabled="{{isSwitching || !deviceOnline}}" />
+    </view>
+
+    <!-- 红外发射独立小按钮（替换原 switch） -->
+    <view class="data-row">
+      <view class="label">📡 红外发射</view>
+      <view class="ir-mini-btn {{isSendingIR ? 'ir-mini-btn-disabled' : ''}}" bindtap="sendIRCommand">
+        <text class="ir-mini-icon">📡</text>
+      </view>
+    </view>
+
+    <view class="footer">
+      <text class="status {{deviceOnline ? 'online' : 'offline'}}">
+        {{deviceOnline ? (isSwitching ? '指令发送中...' : '设备在线，可控制') : '设备离线，无法控制'}}
+      </text>
+    </view>
+  </view>
+
+  <button type="primary" bindtap="onRefreshTap" class="refresh-btn" loading="{{isRefreshing}}">
+    🔄 {{isRefreshing ? '刷新中...' : '手动刷新'}}
+  </button>
+
+  <view class="tip">
+    <text>提示：数据每30秒自动刷新，设备在线时可正常获取。</text>
+  </view>
+</view>

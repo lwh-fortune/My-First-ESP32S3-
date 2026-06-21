@@ -78,17 +78,17 @@ String currentTimeStr = "00:00";
 bool wifiConnected = false;
 
 // OneNET MQTT 配置
-const char* ssid = "iQOO 11";
-const char* password = "20031006";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 const char* MQTT_SERVER = "mqtts.heclouds.com";
 const uint16_t MQTT_PORT = 1883;
-const char* MQTT_CLIENT_ID = "ESP32_02";
-const char* MQTT_USERNAME = "Afw3tvB0Br";
-const char* MQTT_PASSWORD = "version=2018-10-31&res=products%2FAfw3tvB0Br%2Fdevices%2FESP32_02&et=3030214878&method=md5&sign=SqeSVJQWhZgWzSpLcANc%2FQ%3D%3D";
+const char* MQTT_CLIENT_ID = "YOUR_DEVICE_ID";
+const char* MQTT_USERNAME = "YOUR_PRODUCT_ID";
+const char* MQTT_PASSWORD = "YOUR_TOKEN_OR_SECURITY_KEY";
 
-const char* MQTT_PUB_TOPIC = "$sys/Afw3tvB0Br/ESP32_02/thing/property/post";
-const char* MQTT_SUB_TOPIC  = "$sys/Afw3tvB0Br/ESP32_02/thing/property/set";
-const char* MQTT_REPLY_TOPIC = "$sys/Afw3tvB0Br/ESP32_02/thing/property/set_reply";
+const char* MQTT_PUB_TOPIC = "$sys/YOUR_PRODUCT_ID/YOUR_DEVICE_ID/thing/property/post";
+const char* MQTT_SUB_TOPIC  = "$sys/YOUR_PRODUCT_ID/YOUR_DEVICE_ID/thing/property/set";
+const char* MQTT_REPLY_TOPIC = "$sys/YOUR_PRODUCT_ID/YOUR_DEVICE_ID/thing/property/set_reply";
 
 // ====================== 前置声明 ======================
 void drawUI();

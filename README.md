@@ -19,6 +19,24 @@
 | 环境感知 | DHT20 | I2C | 温湿度数据采集 |
 | 动力执行 | SRD-05VDC | GPIO (三极管饱和驱动) | 风扇、加湿器强电控制 |
 
+## 📐 硬件电路与 PCB 设计
+
+本项目基于双层板架构（1oz 铜厚）进行独立 Layout，实现了高载流下的电源完整性（PI）与电磁兼容（EMC）调优。
+
+### 1. 原理图设计亮点 (Schematic)
+* 设计了 4A PPTC 自恢复保险丝与大容量储能电容组合的输入防护级。
+* 针对继电器与舵机等感性负载，设计了 SS8050 三极管深饱和驱动电路，并反向并联续流二极管进行高压反向电动势（Back-EMF）隔离。
+
+>[点击此处查看完整原理图 PDF](./Hardware/Previews/schematic.pdf)
+
+### 2. PCB Layout 渲染图 (PCB Layout)
+* **星形拓扑布线**：电源分配网络（PDN）采用星形走线，主供电轨走线宽度达 180 mil。
+* **射频与地平面优化**：2.4GHz 天线区域实施 5mm 严格净空；全板实施双面大面积覆地，并利用地过孔阵列（Via Stitching）强力耦合回流路径。
+
+![PCB 正面渲染图](./Hardware/Previews/pcb_front_3d.png)
+![PCB 背面路由图](./Hardware/Previews/pcb_back_layout.png)
+
+
 ## 🚀 快速上手
 1. 克隆本项目：`git clone ...`
 2. 使用 VS Code + PlatformIO 打开。
